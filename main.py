@@ -3,20 +3,10 @@ from flask import Flask, Response
 import requests
 app = Flask(__name__)
 
-TOKEN = '5631145263:AAF9gy8BDngcB1otAMC_P-a1ro1r3AIbxGA'
+TOKEN = ''
 TELEGRAM_INIT_WEBHOOK_URL = 'https://api.telegram.org/bot{}/setWebhook?url=https://ac84-82-80-173-170.ngrok.io/message'.format(TOKEN)
 
 requests.get(TELEGRAM_INIT_WEBHOOK_URL)
-
-
-@app.route('/')
-def home():
-    return "Welcome Home"
-
-
-@app.route('/sanity')
-def sanity():
-    return "Server is running"
 
 
 @app.route('/message', methods=["POST"])
